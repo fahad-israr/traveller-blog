@@ -23,7 +23,7 @@ A traveller Blog built with Spring ,Hibernate and JSP
 
 ### Goto ->Run as ->Run on Server
 
-### Now visit http://localhost:8080/traveller-blog/
+### Now visit http://localhost:8080/traveller-blog/  (Prefer to View On Chrome For Better Support)
 
 ### Prefer to use Apache Tomcat v 8.0
 
