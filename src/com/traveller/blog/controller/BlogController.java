@@ -35,10 +35,10 @@ public class BlogController {
 	@GetMapping("/list")
 	public String listBlogs(Model theModel) {
 		
-		// get customers from the service
+		// get blogs from the service
 		List<Blog> theBlogs = blogService.getBlogs();
 				
-		// add the customers to the model
+		// add the blogs to the model
 		theModel.addAttribute("blogs", theBlogs);
 		
 		return "list-blogs";
@@ -58,14 +58,14 @@ public class BlogController {
 	@PostMapping("/saveBlog")
 	public String saveBlog(@ModelAttribute("blog") Blog theBlog,@RequestParam CommonsMultipartFile file,  
 	           HttpSession session) throws Exception {
-		System.out.println(theBlog);
+		//System.out.println(theBlog);
 		ServletContext context = session.getServletContext();  
 	    String path = context.getRealPath(UPLOAD_DIRECTORY);  
 	    String filename = file.getOriginalFilename();  
 	    //System.out.println("File:"+filename);
 	     
 	    String storage_path=path+file.getOriginalFilename();
-	    System.out.println(storage_path  );   
+	    System.out.println(storage_path  );   //Logging the storage Path on Disk
 	  
 	    byte[] bytes = file.getBytes();  
 	    BufferedOutputStream stream =new BufferedOutputStream(new FileOutputStream(  
@@ -73,7 +73,7 @@ public class BlogController {
 	    stream.write(bytes);  
 	    stream.flush();  
 	    stream.close();  
-		// save the customer using our service
+		// save the blog using our service
 	    theBlog.setImage(storage_path);
 		blogService.saveBlog(theBlog);	
 		
@@ -97,7 +97,7 @@ public class BlogController {
 	@GetMapping("/delete")
 	public String deleteBlog(@RequestParam("blogId") int theId) {
 		
-		// delete the customer
+		// delete the blog
 		blogService.deleteBlog(theId);
 		
 		return "redirect:/blog/list";

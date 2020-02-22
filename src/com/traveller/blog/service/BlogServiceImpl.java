@@ -12,7 +12,7 @@ import com.traveller.blog.entity.Blog;
 @Service
 public class BlogServiceImpl implements BlogService {
 
-	// need to inject customer dao
+	// need to inject Blog dao
 	@Autowired
 	private BlogDAO blogDAO;
 	

@@ -1,5 +1,18 @@
+body{
+	max-width:80%;
+	margin:auto;
+	text-align:center ;
+	border:1px solid ;
+	border-radius:10px;
+}
+@media only screen and (min-width: 1400px) {
+  body {
+    max-width:60%;
+  }
+}
 form {
 	margin-top: 10px;
+	margin-bottom:50px;
 }
 
 label {
@@ -31,6 +44,7 @@ input {
 table {   
 	border-style:none;
 	width:50%;
+	margin:auto;
 }
 
 tr:nth-child(even) {background: #FFFFFF}
@@ -40,4 +54,33 @@ tr {
 	border-style:none;
 	text-align:left;	
 }
+#description{
+height:100px !important;
+}
+.reset{
+	width:130px;
+}
+#header{
+	margin:auto !important;
+	background:#ffffff;
+}
+#header h2{
+	color:#9F53E6 ;
+}#wrapper{
+	border-bottom:2px solid #cccccc;
+}
+.nav{
+	float:left;
+	background:#ececed;
+}
+.nav>a{
+	text-decoration:none !important;
 	
+}
+.nav:hover{
+	background:#d4d4d5;
+}
+.nav>a>span{
+	font-size:25px;
+	
+}

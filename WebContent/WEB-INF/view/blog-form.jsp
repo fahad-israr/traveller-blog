@@ -17,6 +17,9 @@
          </div>
       </div>
       <div id="container">
+       <p class="nav">
+            <a href="${pageContext.request.contextPath}/blog/list"><span>&larr;</span>View  Blogs</a>
+         </p>
          <h3>Add a Blog</h3>
          <form:form action="saveBlog" modelAttribute="blog" enctype="multipart/form-data" method="POST">
             <!-- need to associate this data with blog id -->
@@ -24,29 +27,31 @@
             <table>
                <tbody>
                   <tr>
-                     <td><label>Name:</label></td>
+                     <td><label>Name:*</label></td>
                      <td>
-                        <form:input path="name"  id="name" onkeypress="check_max_length(event)" onkeydown="check_max_length(event)"/>
+                        <form:input path="name"  id="name" onkeypress="check_max_length(event)" onkeydown="check_max_length(event)" placeholder="Mandatory Field:max length 100"/>
                      </td>
                   </tr>
-                  <tr>
-                   <tr>
-                     <td><label>Description:</label></td>
-                     <td>
-                        <form:input path="description"  />
-                     </td>
-                  </tr>
-                  <tr>
+                    <tr>
                      <td ><label>Date</label></td>
                      <td>
                         <form:input path="date" id="blog_date"  onchange="checkDate()" placeholder="dd/mm/yyyy" size="10" />
                      </td>
                   </tr>
                   <tr>
+                   <tr>
+                     <td><label>Description:</label></td>
+                     <td>
+                        <form:textarea path="description" cols="30" />
+                     </td>
+                  </tr>
+
+                  <tr>
                      <td><label for="image">Choose Image</label></td>
                      <td> <input  name="file" id="fileToUpload" type="file" onchange="loadFile(event)" /></td>
                   </tr>
                   <tr>
+                  <td><label></label></td>
                      <td>
                         <img id="output" width="300" />
                         <p id="size"></p>
@@ -54,15 +59,15 @@
                   </tr>
                   <tr>
                      <td><label></label></td>
-                     <td><input id="final_submit" type="submit" value="Save" class="save" disabled/></td>
+                     <td><input id="final_submit" type="submit" value="Submit" class="save" disabled/>
+                     <input type="reset" value="Reset" onclick="resetImg()" class="reset"></td>
+                     
                   </tr>
                </tbody>
             </table>
          </form:form>
-         <div style="clear; both;"></div>
-         <p>
-            <a href="${pageContext.request.contextPath}/blog/list">Back to List</a>
-         </p>
+         <div style="height:50px;border-top:2px solid #cccccc"></div>
+        
       </div>
       
       
@@ -71,7 +76,14 @@
       
       <script type="text/javascript">
       
+      //Resets Preview
+      function resetImg(){
+    	  document.getElementById('output').src="";
+    	  document.getElementById('size').innerHTML = '';
+      }
       
+      
+      //Check if entered date is greater than the current date.
       function checkDate() {
 		   var selectedText = document.getElementById('blog_date').value;
 		   //console.log(selectedText);
@@ -89,6 +101,7 @@
 			    document.getElementById('blog_date').value=""
 		   }
 		 }
+      
     //Function to Restrict max length to 100
       function check_max_length(event){
     	  
@@ -101,6 +114,8 @@
     	  }else 
     		  document.getElementById("final_submit").removeAttribute("disabled");
       }
+    
+    
     //File Extension Checking Utility Function
          function hasExtension(inputID, exts) {
              var fileName = document.getElementById(inputID).value;
@@ -108,6 +123,9 @@
              return (new RegExp('(' + exts.join('|').replace(/\./g, '\\.') + ')$')).test(fileName);
              
          }
+    
+    
+    	//Checking File Size and Format
          var loadFile = function(event) {
          	const fsize = event.target.files[0].size; 
                 const file = Math.round((fsize / 1024)); 
@@ -120,7 +138,7 @@
             			  document.getElementById("final_submit").setAttribute("disabled","true");
             		  }
                 } 
-                else
+                else //Will check for Valid Formats
                 	if (!hasExtension('fileToUpload', ['.jpg', '.jpeg', '.png'])){
                 		alert( "Invalid file format(only JPG,JPEG and PNG supported)"); 
                         event.target.value = "";
@@ -131,7 +149,7 @@
                 	else
                 	{	
                 	
-                		if(document.getElementById("name").value.length<100)
+                		if(document.getElementById("name").value.length<100&&document.getElementById("name").value.length>0)
             	         document.getElementById("final_submit").removeAttribute("disabled");
            
                         document.getElementById('size').innerHTML = '<b>'

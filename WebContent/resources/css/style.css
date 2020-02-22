@@ -1,5 +1,9 @@
-html, body{
-	margin-left:15px; margin-right:15px; 
+ body{
+	max-width:90%;
+	margin:auto; 
+	text-align:center ;
+	border:1px solid ;
+	border-radius:10px;
 	padding:0px; 
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 }
@@ -38,10 +42,88 @@ tr:nth-child(odd) {background: #BBBBBB}
 	border-radius: 5px; 
 	padding: 4px; 
 	font-size: 12px;
-	font-weight: bold;
+	color:rgb(85, 26, 139);
 	width: 120px; 
 	padding: 5px 10px; 
-	
+	font-size:20px;
 	margin-bottom: 15px;
-	background: #cccccc;
+	background: #ececed;
+	float:left;
+	position:absolute;
+	left:5%;
+}
+.add-button:hover{
+	background:#cccccc;
+}
+.edit-button {
+	border: 1px solid #666; 
+	border-radius: 5px; 
+	padding: 4px; 
+	font-size: 12px;
+	color:rgb(85, 26, 139);
+	width: 120px; 
+	padding: 5px 10px; 
+	font-size:20px;
+	margin-bottom: 15px;
+	background: #ececed;
+	float:left;
+	text-decoration:none;
+	margin-right:10px;
+}
+.edit-button:hover{
+	background:#cccccc;
+}
+.main_flex{
+display:flex;
+flex-direction:column;
+}
+.main_flex_2{
+display:flex;
+flex-direction:column;
+text-align:left;
+margin-left:20px;
+}
+.inner_flex{
+	display:flex;
+	flex-direction:row;
+	border-radius: 10px;
+    padding: 10px;
+    border: 2px solid #cccccc;
+    margin-top:20px;
+    justify-content: flex-start;
+}
+h4{
+	margin:0;
+	display:inline;
+}
+p{
+	display:inline;
+}
+
+.reset{
+	width:130px;
+}
+#header{
+	margin:auto !important;
+	background:#ffffff;
+}
+#header h2{
+	color:#9F53E6 ;
+}#wrapper{
+	border-bottom:2px solid #cccccc;
+}
+.nav{
+	float:left;
+	background:#ececed;
+}
+.nav>a{
+	text-decoration:none !important;
+	
+}
+.nav:hover{
+	background:#d4d4d5;
+}
+.nav>a>span{
+	font-size:25px;
+	
 }

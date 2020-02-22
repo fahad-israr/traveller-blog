@@ -22,28 +22,24 @@
 			<h2>Travellers Blog</h2>
 		</div>
 	</div>
+	<input type="button" value="+ Add Blog"
+				   onclick="window.location.href='showFormForAdd'; return false;"
+				   class="add-button"
+			/>
 	
 	<div id="container">
 	
 		<div id="content">
 		
-			<!-- put new button: Add Customer -->
+			<!-- put new button: Add Blog -->
 		
-			<input type="button" value="Add Blog"
-				   onclick="window.location.href='showFormForAdd'; return false;"
-				   class="add-button"
-			/>
+			
 		
 			<!--  add our html table here -->
 		
-			<table>
-				<tr>
-					<th>Name</th>
-					<th>Date</th>
-					<th>Description</th>
-					<th>IMage</th>
-					<th>Action</th>
-				</tr>
+			
+			
+				<div class="main_flex">
 				
 				<!-- loop over and print our blogs -->
 				<c:forEach var="tempBlog" items="${blogs}">
@@ -57,27 +53,37 @@
 					<c:url var="deleteLink" value="/blog/delete">
 						<c:param name="blogId" value="${tempBlog.id}" />
 					</c:url>					
-					
-					<tr>
-						<td> ${tempBlog.name} </td>
-						<td> ${tempBlog.date} </td>
-						<td> ${tempBlog.description} </td>
 						
-						<td><img src="${pageContext.request.contextPath}/image/${tempBlog.image }" width="400"/></td>
+						<div class="inner_flex">
+					<div>
+					<img src="${pageContext.request.contextPath}/image/${tempBlog.image }" width="450"/>
+					</div>
+					<div class="main_flex_2">
+						<div>
+						<h1> ${tempBlog.name}</h1>
+						 </div>
+						 <div>
+						 <h3>Date:${tempBlog.date}</h3> 
+						 </div>
+						 <div>
+						<h4>Description:</h4><p>${tempBlog.description}</p> 
+						</div>
 						
-						<td>
+						
+						
 							<!-- display the update link -->
-							<a href="${updateLink}">Update</a>
-							|
-							<a href="${deleteLink}"
-							   onclick="if (!(confirm('Are you sure you want to delete this blog?'))) return false">Delete</a>
-						</td>
+							<div>
+							<h3>Available Actions:</h3>
+							<a href="${updateLink}" class="edit-button">Update</a>
+							<a href="${deleteLink}" class="edit-button" onclick="if (!(confirm('Are you sure you want to delete this blog?'))) return false">Delete</a>
+							   </div>
+					</div>
 						
-					</tr>
+					</div>
 				
 				</c:forEach>
 						
-			</table>
+		</div>
 				
 		</div>
 	

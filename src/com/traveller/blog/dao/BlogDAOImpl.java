@@ -25,9 +25,9 @@ public class BlogDAOImpl implements BlogDAO {
 		// get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 				
-		// create a query  ... sort by last name
+		// create a query  ... sort by Date
 		Query<Blog> theQuery = 
-				currentSession.createQuery("from Blog order by date",
+				currentSession.createQuery("from Blog order by date desc",
 											Blog.class);
 		
 		// execute query and get result list
@@ -43,7 +43,7 @@ public class BlogDAOImpl implements BlogDAO {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		// save/upate the customer ... finally LOL
+		// save/upate the blog ... 
 		currentSession.saveOrUpdate(theBlog);
 		
 	}
