@@ -17,13 +17,13 @@ A traveller Blog built with Spring ,Hibernate and JSP
 
 ### -Execute the SQL Scripts available in "sql scripts" folder
 
-### -Change Constructor Arguement value in spring-mvc-servlet.xml from <constructor-arg>
+### -Change Constructor Arguement value in spring-mvc-servlet.xml from "<constructor-arg>
 <value>/home/fahad/eclipse-workspace/</value>
-</constructor-arg> to a suitable value
+</constructor-arg> "    to a suitable value
 
 ### Goto ->Run as ->Run on Server
 
-### Now visit http://localhost:8080/traveller-blog/  (Prefer to View On Chrome For Better Support)
+### Now visit http://localhost:8080/traveller-blog/  (Prefer to View On Chrome For Better Compatibility)
 
 ### Prefer to use Apache Tomcat v 8.0
 
