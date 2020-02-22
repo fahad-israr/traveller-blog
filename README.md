@@ -13,7 +13,7 @@ A traveller Blog built with Spring ,Hibernate and JSP
 
 # How to Run:
 
-### -Clone this Repo into ecplise IDE
+### -Clone this Repo and go into ecplise IDE
 
 ### -Execute the SQL Scripts available in "sql scripts" folder
 
